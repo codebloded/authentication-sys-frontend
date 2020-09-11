@@ -73,8 +73,9 @@ router.post('/login', async (req,res)=>{
     const validPassword = await bcrypt.compare(req.body.password , user.password);
     if(!validPassword) return res.status(404).send("Passowd is incorrect");
 //Token based Auth
-    const token = Jwt.sign({_id:user._id}, process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token);
+    const token = Jwt.sign({_id:user._id}, process.env.TOKEN_SECRET)
+    res.json(token)
+    // res.header('auth-token', token).send(token);
     
 })
 

@@ -25,8 +25,8 @@ mongoose.connect(process.env.CONNECT_DB,({ useUnifiedTopology: true ,useNewUrlPa
     console.log("connect to mongodb ")
 });
 
-app.use('/',authRouter);
-app.use('/user', userRouter);
+app.use('/api',authRouter);
+app.use('/api/user', userRouter);
 
 
 

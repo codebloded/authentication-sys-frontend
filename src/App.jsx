@@ -25,10 +25,10 @@ function App() {
             <Typography variant="inherit" style={{ flexGrow: 1 }}>
               Authentication
           </Typography>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/registerr">
+            <Link style={{ textDecoration: "none", color: "white" }} to="/register">
               <Button color="inherit">Register</Button>
             </Link>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/loginn">
+            <Link style={{ textDecoration: "none", color: "white" }} to="/login">
               <Button color="inherit">Login</Button>
             </Link>
           </Toolbar>
@@ -36,10 +36,10 @@ function App() {
 
 
         <Route exact path="/" component={Front} />
-        <Route exact path="/registerr" component={Register} />
-        <Route exact path="/loginn" component={Login} />
-        <Route exact path="/logoutt" component={Logout} />
-        <Route  path="/user" component={User} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/logout" component={Logout} />
+        <Route exact path="/api/user" component={User} />
 
       </BrowserRouter>
     </div>

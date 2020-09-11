@@ -6,12 +6,12 @@ import Axios from 'axios';
 function User(){
     const [apiData , setApiData] = useState();
     useEffect(async ()=>{
-        const token = localStorage.getItem('token');
-        console.log(token);
-        const response = await Axios.get('http://localhost:4000/user',{
+        const Token = JSON.parse(localStorage.getItem('token'));
+        console.log(Token);
+        const response = await Axios.get('http://localhost:4000/api/user',{
             headers:{
 
-                'auth-token':token
+                'Authorization': Token
             }
         })
         try {
@@ -28,7 +28,7 @@ function User(){
          
         <h1>Sucessfully logged in </h1>
         <h2>You are on the user page </h2>
-        <Link to="/logoutt" style={{textDecoration:"none", color:"white"}}><Button variant = "contained" color="primary">Logout</Button></Link>
+        <Link to="/logout" style={{textDecoration:"none", color:"white"}}><Button variant = "contained" color="primary">Logout</Button></Link>
 
         </div>
     )

@@ -27,10 +27,10 @@ function Login() {
     const submitHandler =async (e) =>{
             e.preventDefault();
             console.log(data)
-            const token = await axios.post("http://localhost:4000/login", data)
+            const token = await axios.post("http://localhost:4000/api/login", data)
             try{
 
-                localStorage.setItem("token", JSON.stringify(token));
+                localStorage.setItem("token", `"Bearer ${token.data}"`);
                 console.log(token);
                 setLog(true);
 
@@ -51,7 +51,7 @@ function Login() {
     }
  
         if(isLoggedIn === true){
-            return <Redirect to="/user"/>
+            return <Redirect to="/logout"/>
         }
    
     return (

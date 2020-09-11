@@ -18,7 +18,7 @@ function Register() {
     const submithandler = (e) => {
         console.log(e.target)
         e.preventDefault();
-        axios.post("http://localhost:4000/register", data).then((res => {
+        axios.post("http://localhost:4000/api/register", data).then((res => {
             console.log(res.data);
         })).catch(err => {
             console.log(err);
