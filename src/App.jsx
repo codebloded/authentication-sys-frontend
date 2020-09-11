@@ -10,8 +10,9 @@ import Login from './Components/Login';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Front from './Components/Front'
 import { Link } from 'react-router-dom';
-import Register from './Components/Register'
-  ;
+import Register from './Components/Register';
+import Logout from './Components/Logout'
+import User from './Components/User';
 function App() {
   return (
     <div className="App">
@@ -24,10 +25,10 @@ function App() {
             <Typography variant="inherit" style={{ flexGrow: 1 }}>
               Authentication
           </Typography>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/register">
+            <Link style={{ textDecoration: "none", color: "white" }} to="/registerr">
               <Button color="inherit">Register</Button>
             </Link>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/login">
+            <Link style={{ textDecoration: "none", color: "white" }} to="/loginn">
               <Button color="inherit">Login</Button>
             </Link>
           </Toolbar>
@@ -35,9 +36,10 @@ function App() {
 
 
         <Route exact path="/" component={Front} />
-        <Route exact path="/register" component={Register} />
-
-        <Route path="/login" component={Login} />
+        <Route exact path="/registerr" component={Register} />
+        <Route exact path="/loginn" component={Login} />
+        <Route exact path="/logoutt" component={Logout} />
+        <Route  path="/user" component={User} />
 
       </BrowserRouter>
     </div>

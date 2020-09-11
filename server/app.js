@@ -2,11 +2,18 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const authRouter = require('./routes/authRouter');
+const bodyParser = require('body-parser')
+const cors = require('cors');
+const userRouter = require('./routes/userRouter');
 
 
 const app = express();
 const port = '4000';
 const host = 'localhost';
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(cors());
 
 // ==========MIDDLEWARRE========
 app.get("/", (req, res)=>{
@@ -18,7 +25,9 @@ mongoose.connect(process.env.CONNECT_DB,({ useUnifiedTopology: true ,useNewUrlPa
     console.log("connect to mongodb ")
 });
 
-app.use('/api',authRouter);
+app.use('/',authRouter);
+app.use('/user', userRouter);
+
 
 
 

@@ -20,12 +20,13 @@ const schema = {
 
 //===============+ROUTES===================
 router.get('/', (req,res)=>{
-    res.json({message:"GET request"})
+    res.json({message:"GET request", body:req.body})
     
 })
 
 router.post('/register', async (req, res)=>{
-    res.setHeader("Content-Type", "application/json")
+
+    // res.setHeader("Content-Type", "application/json")
     const {error} = registerValidation(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
@@ -49,8 +50,9 @@ router.post('/register', async (req, res)=>{
    const saveUser = await user.save();
    try{
        res.json(saveUser);
+       console.log("user saved")
    }catch(err){
-       res.status(400).send(err);
+       res.status(404).send(err);
    }
 
 });
@@ -58,6 +60,7 @@ router.post('/register', async (req, res)=>{
 //==================Login Route============
 
 router.post('/login', async (req,res)=>{
+    
     const {error} =  loginValidation(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
